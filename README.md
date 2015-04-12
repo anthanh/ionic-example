@@ -24,7 +24,7 @@ Example app for educational purposes
 
 4. Emulate project
 
-	```
+	```bash
 	ionic emulate android
 	# ionic emulate ios
 	# ionic run android
