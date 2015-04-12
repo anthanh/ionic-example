@@ -7603,7 +7603,7 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.item-avatar {
+ion-side-menu .item-avatar {
   background-color: #886aea; }
-  .item-avatar h2, .item-avatar p {
+  ion-side-menu .item-avatar h2, ion-side-menu .item-avatar p {
     color: white; }
