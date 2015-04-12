@@ -1,0 +1,18 @@
+<ion-view>
+<ion-side-menu side="left">
+    <ion-list>
+        <ion-item class="item-avatar" type="item-text-wrap">
+            <img ng-src="{{user.avatar}}">
+            <h2>{{user.name}}</h2>
+            <p>{{user.city}}</p>
+        </ion-item>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/login">
+            <h2>Logout</h2>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+            <ion-option-button class="button-assertive" ng-click="remove(chat)">
+                Delete
+            </ion-option-button>
+        </ion-item>
+    </ion-list>
+</ion-side-menu>
+</ion-view>
