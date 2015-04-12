@@ -21,9 +21,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-ion-side-menu .item-avatar {
+.menu.menu-left .item-avatar {
     background-color: $royal;
     h2, p {
         color: white;
     }
+}
+
+.popover {
+	height: 4em;
 }
