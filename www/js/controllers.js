@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('MainCtrl', function($scope, $ionicSideMenuDelegate, $ionicPopover) {
+.controller('MainCtrl', function($scope, $ionicPopover) {
 
     $scope.user = {
         avatar: 'http://www.gravatar.com/avatar/7e6af66d57801c031359233b5756e884.png',
@@ -8,30 +8,16 @@ angular.module('starter.controllers', [])
         city: 'Mordor City'
     };
 
-    $scope.toggleLeftSideMenu = function() {
-        console.log('sidemenuL');
-        $ionicSideMenuDelegate.toggleLeft();
-    };
-
-    $scope.toggleRightSideMenu = function() {
-        console.log('sidemenuR');
-    };
-
-    $scope.showActionsMenu = function($event) {
-        this.showPopover($event);
-    };
-
-    // .fromTemplateUrl() method
     $ionicPopover.fromTemplateUrl('templates/popover.html', {
         scope: $scope
     }).then(function(popover) {
         $scope.popover = popover;
     });
 
-    $scope.showPopover = function($event) {
+    $scope.showActionsMenu = function($event) {
         $scope.popover.show($event);
     };
-    $scope.hidePopover = function() {
+    $scope.hideActionsMenu = function() {
         $scope.popover.hide();
     };
 
@@ -52,16 +38,11 @@ angular.module('starter.controllers', [])
 
 .controller('LoginCtrl', function($scope, $state) {
     $scope.login = function() {
-        console.log('LOG!');
         $state.go('tab.dash');
     };
 })
 
-.controller('DashCtrl', function($scope) {
-    $scope.log = function() {
-        console.log('LOG!');
-    };
-})
+.controller('DashCtrl', function($scope) { })
 
 .controller('ChatsCtrl', function($scope, Chats, $timeout) {
     $scope.chats = Chats.all();
@@ -70,9 +51,12 @@ angular.module('starter.controllers', [])
     }
 
     $scope.doRefresh = function() {
-        $timeout(function() {
+        Chats.more().success(function(chats) {
+            $scope.chats = $scope.chats.concat(chats);
             $scope.$broadcast('scroll.refreshComplete');
-        }, 1000);
+        }).error(function() {
+            $scope.$broadcast('scroll.refreshComplete');
+        });
     };
 
 })

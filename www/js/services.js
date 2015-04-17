@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
+.factory('Chats', function($http) {
     // Might use a resource here that returns a JSON array
 
     // Some fake testing data
@@ -32,6 +32,9 @@ angular.module('starter.services', [])
     }];
 
     return {
+        more: function() {
+            return $http.get('res/chats.json');
+        },
         all: function() {
             return chats;
         },
