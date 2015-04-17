@@ -6,23 +6,30 @@ Example app for educational purposes
 
 	```bash
 	git clone git@github.com:anthanh/ionic-example.git
+	cd ionic-example
 	```
 
-2. Add platforms to project
+2. Run it
+
+	```bash
+	ionic serve --lab
+	```
+
+3. Add platforms to project
 
 	```bash
 	ionic hooks add
 	ionic platform add android
 	```
 
-3. Build project into specific platform
+4. Build project into specific platform
 
 	```bash
 	ionic build android
 	# ionic build ios
 	```
 
-4. Emulate project
+5. Emulate project
 
 	```bash
 	ionic emulate android
